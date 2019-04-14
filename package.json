@@ -1,7 +1,11 @@
 {
   "name": "md-links",
   "version": "0.1.0",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
+    "eslint": "^5.16.0",
     "jest": "^24.7.1"
   }
 }
