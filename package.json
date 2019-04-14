@@ -2,10 +2,12 @@
   "name": "md-links",
   "version": "0.1.0",
   "scripts": {
-    "test": "jest"
+    "eslint": "eslint --ext .js index.js test/",
+    "test": "npm run eslint && jest --coverage"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
+    "eslint-plugin-jest": "^22.4.1",
     "jest": "^24.7.1"
   }
 }
