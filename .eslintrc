@@ -4,5 +4,17 @@
   },
   "parserOptions": {
     "ecmaVersion": 6
-  }
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-console": 0,
+    "semi": 2,
+    },
+  "globals": {
+    "require": "false",
+    "test": "false",
+    "expect": "false",
+    "module": "false"
+    }
+
 }
