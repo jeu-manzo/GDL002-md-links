@@ -12,9 +12,10 @@
     },
   "globals": {
     "require": "false",
-    "test": "false",
+    "it": "false",
+    "describe": "false",
     "expect": "false",
-    "module": "false"
+    "module": "false",
     }
 
 }
