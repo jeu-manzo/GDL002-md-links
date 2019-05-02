@@ -52,6 +52,11 @@ function readFile (file) {
     })
 }
 
+//Extraer todas la getUrls
+function getUrl (text) {
+    return getUrls(text)
+}
+
 
 async function mdLinks (path) {
     try {
@@ -62,8 +67,8 @@ async function mdLinks (path) {
             const readDir = await readDirectory(path);
             const extMd = await findExtMd(readDir);
             const fileConvert = path + '/' + extMd;
-            const bla = await readFile(fileConvert)
-            result = bla;
+            const readFileString = await readFile(fileConvert);
+            result = getUrl(readFileString)
         } else {
             result = await readFile(path)
         }
