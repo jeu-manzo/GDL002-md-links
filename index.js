@@ -72,7 +72,9 @@ async function mdLinks (path) {
             const urls = getUrl(readFileString);
             result = urls
         } else {
-            result = await readFile(path)
+            const readfile = await readFile(path);
+            const urls2 = getUrl(readfile);
+            result = urls2;
         }
 
         return result
