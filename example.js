@@ -7,8 +7,8 @@ const mdLinks = require('./mdlinks');
 //     expect(validation).toBe(true)
 // })
 
-const file = 'index.js';
+const file = 'mdLinks.js';
 const directory = './test';
 const non = 'djdjdjd.js';
 
-mdLinks.statusPath(file);
+mdLinks.statusPath(directory);
