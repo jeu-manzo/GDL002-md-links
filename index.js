@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const getUrls = require('get-urls');
+
 
 
 //Verificar estatus del path
