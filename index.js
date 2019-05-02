@@ -58,6 +58,7 @@ function getUrl (text) {
 }
 
 
+
 async function mdLinks (path) {
     try {
         const stats = await statusPath(path)
@@ -68,7 +69,8 @@ async function mdLinks (path) {
             const extMd = await findExtMd(readDir);
             const fileConvert = path + '/' + extMd;
             const readFileString = await readFile(fileConvert);
-            result = getUrl(readFileString)
+            const urls = getUrl(readFileString);
+            result = urls
         } else {
             result = await readFile(path)
         }
