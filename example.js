@@ -1,0 +1,14 @@
+const mdLinks = require('./mdlinks');
+
+// test('pass validation single file', () => {
+//     const path = './path/to/my/file'
+//     const validation = mdLinks.validate(path)
+
+//     expect(validation).toBe(true)
+// })
+
+const file = 'index.js';
+const directory = './test';
+const non = 'djdjdjd.js';
+
+mdLinks.statusPath(file);

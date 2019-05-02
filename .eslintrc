@@ -13,6 +13,8 @@
   "globals": {
     "require": "false",
     "it": "false",
+    "test": "false",
+    "done": "false",
     "describe": "false",
     "expect": "false",
     "module": "false",
