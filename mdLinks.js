@@ -10,7 +10,7 @@ const mdLinks = {
             }else if(stats.isDirectory()) {
                 //mostrar archivos md
                 console.log('is directory');
-                return this.readDirectory(path)
+                return this.readDirectory(path);
             }else {
                 //manejar file
                 console.log('is file');
@@ -23,18 +23,20 @@ const mdLinks = {
           if (err)
             return console.log(err);
 
-        return this.readFileMd(data)
+        return this.findExtMd(data);
         });
     },
 
-    readFileMd (files) {
+    findExtMd (files) {
         files.forEach(function(file) {
             const ext = path.extname(file);
             if (ext === '.md') {
-                console.log(file);
+                return file;
             }
         });
-    }
+    },
+
+
 
 
 
