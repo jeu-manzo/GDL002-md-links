@@ -11,4 +11,5 @@ const file = 'mdLinks.js';
 const directory = './test';
 const non = 'djdjdjd.js';
 
-mdLinks.statusPath(directory);
+mdLinks.statusPath(file);
+// mdLinks.readFile(file);

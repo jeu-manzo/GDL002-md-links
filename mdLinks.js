@@ -14,6 +14,7 @@ const mdLinks = {
             }else {
                 //manejar file
                 console.log('is file');
+                return this.readFile(path);
             }
         });
     },
@@ -36,23 +37,20 @@ const mdLinks = {
         });
     },
 
+    readFile (file) {
+        fs.readFile(file, (err, data) => {
+            if (err)
+                return console.log(err);
+            const dataString = data.toString();
+            console.log(dataString);
+        })
+    },
 
 
 
 
 
-    // validate (path) {
-    //     fs.readFile(path, (err, data) => {
-    //         if (err) throw err;
-    //         this.checkLinks(data)
-    //         return true
 
-    //     });
-    // },
-
-    // checkLinks (data) {
-    //     // logica para encontrar links en data
-    // }
 };
 
 
