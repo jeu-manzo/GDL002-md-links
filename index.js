@@ -9,11 +9,11 @@ function statusPath (path) {
     return new Promise((resolve, reject) => {
         fs.lstat(path, (err, stats) => {
             if (err) {
-                reject(err)
+                reject(err);
             }
-            resolve(stats)
+            resolve(stats);
         });
-    })
+    });
 }
 
 //Lee todos los archivos de un directorio
@@ -23,20 +23,21 @@ function readDirectory (directory) {
             if (err)
               reject(err);
 
-           resolve(data)
+           resolve(data);
         });
-    })
+    });
 }
 
 //Recibe un array y busca el archivo con extension md
 function findExtMd (files) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
         files.forEach(function(file) {
             const ext = path.extname(file);
             if (ext === '.md') {
                 resolve(file);
             }
         });
+        reject('No file ".md" found');
     });
 }
 
@@ -45,24 +46,25 @@ function readFile (file) {
     return new Promise((resolve, reject) => {
         fs.readFile(file, (err, data) => {
             if (err)
-                reject(err);
+                return reject(err);
+
             const dataString = data.toString();
             resolve(dataString);
-        })
-    })
+        });
+    });
 }
 
 //Extraer todas la getUrls
 function getUrl (text) {
-    return getUrls(text)
+    return getUrls(text);
 }
 
 
 
 async function mdLinks (path) {
     try {
-        const stats = await statusPath(path)
-        let result = null
+        const stats = await statusPath(path);
+        let result = null;
 
         if (stats.isDirectory()) {
             const readDir = await readDirectory(path);
@@ -70,17 +72,24 @@ async function mdLinks (path) {
             const fileConvert = path + '/' + extMd;
             const readFileString = await readFile(fileConvert);
             const urls = getUrl(readFileString);
-            result = urls
+            result = urls;
         } else {
             const readfile = await readFile(path);
-            const urls2 = getUrl(readfile);
-            result = urls2;
+            const urls = getUrl(readfile);
+            result = urls;
         }
 
-        return result
+        return result;
     } catch (err) {
-        console.log('error', err)
+        return err;
     }
 }
 
-module.exports = mdLinks;
+module.exports = {
+    statusPath,
+    readDirectory,
+    findExtMd,
+    readFile,
+    getUrl,
+    mdLinks
+};

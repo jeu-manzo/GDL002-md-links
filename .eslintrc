@@ -1,23 +1,24 @@
 {
-  "env": {
+    "env": {
     "browser": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 6
-  },
-  "extends": "eslint:recommended",
-  "rules": {
-    "no-console": 0,
-    "semi": 2,
     },
-  "globals": {
-    "require": "false",
-    "it": "false",
-    "test": "false",
-    "done": "false",
-    "describe": "false",
-    "expect": "false",
-    "module": "false",
+    "parserOptions": {
+        "ecmaVersion": 2017
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-console": 0,
+        "semi": 2,
+    },
+    "globals": {
+        "require": "false",
+        "it": "false",
+        "test": "false",
+        "Promise": "false",
+        "describe": "false",
+        "expect": "false",
+        "module": "false",
+        "__dirname": "false"
     }
 
 }

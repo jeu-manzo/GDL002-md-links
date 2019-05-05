@@ -1,29 +1,22 @@
-const mdLinks = require('../');
+const mdLinks = require('../index.js');
+const fixtures = require('./fixtures.js');
 
 
 describe('mdLinks', () => {
 
-  //Check argument is not being pass
-  // it('should output "error: path is needed"', () => {
-  //   expect(mdLinks.mdLinks()).toBe('error: path is needed');
-  // });
-  //
-  // //Check argumnt is be pass
-  // it('should output "docs/example.md"', () => {
-  //   expect(mdLinks.mdLinks('docs/example.md')).toBe('docs/example.md');
-  // });
+    test('should output the string of the file', () => {
+      return mdLinks.readFile(`${__dirname}/test-file.md`).then(data => {
+        expect(data).toBe(fixtures.stringFile);
+      });
+    });
 
-  it('should output "error: path is needed"', () => {
-    expect(mdLinks.mdLinks('package.json')).toBe('package.json exists');
-  });
+    test("should be an error 'ENOENT: no such file or directory, open './foo.md''", () => {
+        return mdLinks.readFile('./no-file.md').catch(err => {
+            console.log(err);
+            expect(err.message).toBe("ENOENT: no such file or directory, open './nofile.md'");
+        });
+    });
 
-
-  
-
-  //Check argumnt is be pass
-  // it('should output "docs/example.md"', () => {
-  //   expect(mdLinks.mdLinks('example.md')).toBe('example.md does not exist');
-  // });
 
 
 });
