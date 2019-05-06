@@ -18,9 +18,12 @@ const stringFile =
     - [semver](https://semver.org/).
 `;
 
-const arrayDirectory = ['fixtures.js', 'md-links.spec.js', 'test-file.md'];
+const arrayDirectory = ['fixtures.js', 'md-links.spec.js', 'test-file.md', 'testing-folder'];
+
+const arrayDirectoryNoMd = [ 'fixtures.js', 'md-links.spec.js', 'testing-folder' ];
 
 module.exports = {
     stringFile,
-    arrayDirectory
+    arrayDirectory,
+    arrayDirectoryNoMd
 };
