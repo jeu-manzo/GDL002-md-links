@@ -13,6 +13,6 @@ const non = 'djdjdjd.js';
 //     .catch(err => console.error(err))
 
 
-index.statsPath(non)
+index.readDirectory(non)
 .then(res => console.log(res))
 .catch(err => console.error(err))
