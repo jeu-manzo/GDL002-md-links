@@ -62,5 +62,16 @@ describe('mdLinks', () => {
       });
     });
 
+    test('should output "ok"', () => {
+      return mdLinks.statusUrl('https://www.google.com').then(data => {
+        expect(data).toBe('OK');
+      });
+    });
+
+    test("should output 'fail'", () => {
+        return mdLinks.statusUrl('https://www.example-fail').catch(err => {
+            expect(err).toBe("fail");
+        });
+    });
 
 });
