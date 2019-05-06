@@ -87,12 +87,14 @@ async function mdLinks (path) {
             const extMd = await findExtMd(readDir);
             const fileConvert = path + '/' + extMd;
             const readFileString = await readFile(fileConvert);
-            const urls = getUrl(readFileString);
-            result = urls;
+            const getUrls = getUrl(readFileString);
+            const changeUrls = await changeLinksCorrupt(getUrls)
+            result = changeUrls;
         } else {
             const readfile = await readFile(path);
-            const urls = getUrl(readfile);
-            result = urls;
+            const getUrls = getUrl(readfile);
+            const changeUrls = await changeLinksCorrupt(getUrls)
+            result = changeUrls;
         }
 
         return result;
