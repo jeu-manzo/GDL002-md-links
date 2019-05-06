@@ -18,7 +18,8 @@
         "describe": "false",
         "expect": "false",
         "module": "false",
-        "__dirname": "false"
+        "__dirname": "false",
+        "Set": "false"
     }
 
 }

@@ -16,14 +16,43 @@ const stringFile =
     - [CLI](https://www.proyectobyte.com/windows/simbolo-del-sistema/uso-la-interfaz-linea-comandos).
     - [npm-scripts](https://docs.npmjs.com/misc/scripts).
     - [semver](https://semver.org/).
+    - https://nofunction.com
 `;
 
 const arrayDirectory = ['fixtures.js', 'md-links.spec.js', 'test-file.md', 'testing-folder'];
 
 const arrayDirectoryNoMd = [ 'fixtures.js', 'md-links.spec.js', 'testing-folder' ];
 
+const setUrls = new Set ([
+  'https://nodejs.org/en/)',
+  'https://nodejs.org/docs/latest-v0.10.x/api/modules.html)',
+  'https://nodejs.org/api/fs.html)',
+  'https://nodejs.org/api/path.html)',
+  'https://nodejs.org/api/http.html#http_http_get_options_callback)',
+  'https://en.wikipedia.org/wiki/Parsing)',
+  'https://daringfireball.net/projects/markdown/syntax)',
+  'https://proyectobyte.com/windows/simbolo-del-sistema/uso-la-interfaz-linea-comandos)',
+  'https://docs.npmjs.com/misc/scripts)',
+  'https://semver.org/)',
+  'https://nofunction.com'
+]);
+
+const fixedSetUrls = [ 'https://nodejs.org/en/',
+  'https://nodejs.org/docs/latest-v0.10.x/api/modules.html',
+  'https://nodejs.org/api/fs.html',
+  'https://nodejs.org/api/path.html',
+  'https://nodejs.org/api/http.html#http_http_get_options_callback',
+  'https://en.wikipedia.org/wiki/Parsing',
+  'https://daringfireball.net/projects/markdown/syntax',
+  'https://proyectobyte.com/windows/simbolo-del-sistema/uso-la-interfaz-linea-comandos',
+  'https://docs.npmjs.com/misc/scripts',
+  'https://semver.org/',
+  'https://nofunction.com'];
+
 module.exports = {
     stringFile,
     arrayDirectory,
-    arrayDirectoryNoMd
+    arrayDirectoryNoMd,
+    setUrls,
+    fixedSetUrls
 };

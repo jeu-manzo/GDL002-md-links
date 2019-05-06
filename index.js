@@ -3,7 +3,6 @@ const path = require('path');
 const getUrls = require('get-urls');
 
 
-
 //Verificar si el path es directorio
 function statsPath (path) {
     return new Promise((resolve, reject) => {
@@ -59,6 +58,23 @@ function getUrl (text) {
     return getUrls(text);
 }
 
+//Encuentra links con ')' al final, los arregla e ingresa a un nuevo array
+function changeLinksCorrupt(links) {
+    return new Promise(function(resolve) {
+        let newArray = [];
+        links.forEach(function(link) {
+          const linkCorrupt = link.endsWith(")");
+          if (linkCorrupt === true) {
+              const newStr = link.slice(0, -1);
+              newArray.push(newStr);
+          }else {
+              newArray.push(link);
+          }
+        });
+        resolve(newArray);
+    });
+}
+
 
 
 async function mdLinks (path) {
@@ -91,5 +107,6 @@ module.exports = {
     findExtMd,
     readFile,
     getUrl,
-    mdLinks
+    mdLinks,
+    changeLinksCorrupt
 };

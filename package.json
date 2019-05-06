@@ -11,6 +11,7 @@
     "jest": "^24.7.1"
   },
   "dependencies": {
-    "get-urls": "^9.1.0"
+    "get-urls": "^9.1.0",
+    "markdown-link-extractor": "^1.2.0"
   }
 }

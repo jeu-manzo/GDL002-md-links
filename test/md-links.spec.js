@@ -52,5 +52,15 @@ describe('mdLinks', () => {
         });
     });
 
+    test('should output all the links from test-file.md', () => {
+      expect(mdLinks.getUrl(fixtures.stringFile)).toEqual(fixtures.setUrls);
+    });
+
+    test("should output an array without the final ')' of each link", () => {
+      return mdLinks.changeLinksCorrupt(fixtures.setUrls).then(data => {
+        expect(data).toEqual(fixtures.fixedSetUrls);
+      });
+    });
+
 
 });
