@@ -77,6 +77,24 @@ function changeLinksCorrupt(links) {
 }
 
 
+//recibe un link y retorna un texto de su estatus
+function statusUrl(link) {
+    return new Promise(function(resolve, reject) {
+        fetch(link)
+            .then(res => {
+                resolve(res.statusText); 
+            })
+            .catch((err) => {
+                const error = err.code;
+                if (error === 'ENOTFOUND') {
+                    reject('fail');
+                }
+            });
+    });
+}
+
+
+
 
 async function mdLinks (path) {
     try {
@@ -89,12 +107,12 @@ async function mdLinks (path) {
             const fileConvert = path + '/' + extMd;
             const readFileString = await readFile(fileConvert);
             const getUrls = getUrl(readFileString);
-            const changeUrls = await changeLinksCorrupt(getUrls)
+            const changeUrls = await changeLinksCorrupt(getUrls);
             result = changeUrls;
         } else {
             const readfile = await readFile(path);
             const getUrls = getUrl(readfile);
-            const changeUrls = await changeLinksCorrupt(getUrls)
+            const changeUrls = await changeLinksCorrupt(getUrls);
             result = changeUrls;
         }
 
@@ -111,5 +129,6 @@ module.exports = {
     readFile,
     getUrl,
     mdLinks,
-    changeLinksCorrupt
+    changeLinksCorrupt,
+    statusUrl,
 };
