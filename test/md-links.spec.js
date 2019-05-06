@@ -10,13 +10,25 @@ describe('mdLinks', () => {
       });
     });
 
-    test("should be an error 'ENOENT: no such file or directory, open './foo.md''", () => {
+    test("should be an error 'ENOENT: no such file or directory, open './no-file.md''", () => {
         return mdLinks.readFile('./no-file.md').catch(err => {
             console.log(err);
-            expect(err.message).toBe("ENOENT: no such file or directory, open './nofile.md'");
+            expect(err.message).toBe("ENOENT: no such file or directory, open './no-file.md'");
         });
     });
 
+    test('should be true', () => {
+      return mdLinks.statsPath(`${__dirname}`).then(data => {
+        expect(data).toBe(true);
+      });
+    });
+
+    test("should be an error 'ENOENT: no such file or directory, lstat './no-file.md''", () => {
+        return mdLinks.statsPath('./no-file.md').catch(err => {
+            console.log(err);
+            expect(err.message).toBe("ENOENT: no such file or directory, lstat './no-file.md'");
+        });
+    });
 
 
 });

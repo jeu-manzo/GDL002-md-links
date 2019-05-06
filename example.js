@@ -8,11 +8,11 @@ const directory2 = '../'
 
 const non = 'djdjdjd.js';
 
-index.mdLinks(directory)
-    .then(res => console.log(res))
-    .catch(err => console.error(err))
+// index.mdLinks(directory)
+//     .then(res => console.log(res))
+//     .catch(err => console.error(err))
 
 
-// index.statusPath(file)
-// .then(res => console.log(res))
-// .catch(err => console.error(err))
+index.statsPath(non)
+.then(res => console.log(res))
+.catch(err => console.error(err))
