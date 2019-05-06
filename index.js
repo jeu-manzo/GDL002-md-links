@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const getUrls = require('get-urls');
+const fetch = require('node-fetch');
 
 
 //Verificar si el path es directorio
