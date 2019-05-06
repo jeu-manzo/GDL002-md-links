@@ -4,14 +4,14 @@ const getUrls = require('get-urls');
 
 
 
-//Verificar estatus del path
-function statusPath (path) {
+//Verificar si el path es directorio
+function statsPath (path) {
     return new Promise((resolve, reject) => {
         fs.lstat(path, (err, stats) => {
             if (err) {
-                reject(err);
+                return reject(err);
             }
-            resolve(stats);
+            resolve(stats.isDirectory());
         });
     });
 }
@@ -21,7 +21,7 @@ function readDirectory (directory) {
     return new Promise((resolve, reject) => {
         fs.readdir(directory, (err, data) => {
             if (err)
-              reject(err);
+              return reject(err);
 
            resolve(data);
         });
@@ -63,10 +63,10 @@ function getUrl (text) {
 
 async function mdLinks (path) {
     try {
-        const stats = await statusPath(path);
+        const stats = await statsPath(path);
         let result = null;
 
-        if (stats.isDirectory()) {
+        if (stats === true) {
             const readDir = await readDirectory(path);
             const extMd = await findExtMd(readDir);
             const fileConvert = path + '/' + extMd;
@@ -86,7 +86,7 @@ async function mdLinks (path) {
 }
 
 module.exports = {
-    statusPath,
+    statsPath,
     readDirectory,
     findExtMd,
     readFile,
